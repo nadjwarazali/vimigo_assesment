@@ -7,13 +7,6 @@ class SearchWidget extends StatefulWidget {
 
   const SearchWidget({Key key, this.text, this.onChanged, this.hintText}) : super(key: key);
 
-  // const SearchWidget({
-  //   Key? key,
-  //   required this.text,
-  //   required this.onChanged,
-  //   required this.hintText,
-  // }) : super(key: key);
-
   @override
   _SearchWidgetState createState() => _SearchWidgetState();
 }
@@ -37,6 +30,7 @@ class _SearchWidgetState extends State<SearchWidget> {
       ),
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextField(
+        textInputAction: TextInputAction.search,
         controller: controller,
         decoration: InputDecoration(
           icon: Icon(Icons.search, color: style.color),
@@ -55,7 +49,7 @@ class _SearchWidgetState extends State<SearchWidget> {
           border: InputBorder.none,
         ),
         style: style,
-        onChanged: widget.onChanged,
+        onSubmitted: widget.onChanged,
       ),
     );
   }

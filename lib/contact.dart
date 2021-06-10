@@ -21,8 +21,6 @@ class _ContactWithListState extends State<ContactWithList> {
   bool isSwitched = true;
   List<Contact> contacts = [];
   String query = '';
-  // GlobalKey<RefreshIndicatorState> refreshKey;
-
   int newItemCount = 15;
   Future loading;
 
@@ -129,7 +127,7 @@ class _ContactWithListState extends State<ContactWithList> {
             print("build");
             return Container(
                 height: MediaQuery.of(context).size.height * 0.6,
-                child: _buildPullToRefresh(newItemCount));
+                child: _buildPullToRefresh());
           }
         }
       },
@@ -141,7 +139,7 @@ class _ContactWithListState extends State<ContactWithList> {
     print("future");
   }
 
-  Widget _buildPullToRefresh(int itemCount) => SmartRefresher(
+  Widget _buildPullToRefresh() => SmartRefresher(
         enablePullDown: true,
         enablePullUp: true,
         header: WaterDropHeader(),

@@ -239,30 +239,30 @@ class _MyContactsState extends State<MyContacts> {
 
   }
 
-  // void sortContact(BuildContext context) {
-  //   return setState(() {
-  //     allContacts
-  //         .map((Contact contacts) => Card(
-  //               child: ListTile(
-  //                 title: Row(
-  //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //                   children: [
-  //                     Text(contacts.user,
-  //                         style: TextStyle(
-  //                             color: Colors.black,
-  //                             fontWeight: FontWeight.bold,
-  //                             fontSize: 16)),
-  //                     Text(toggleSwitch(isSwitched, contacts)),
-  //                   ],
-  //                 ),
-  //                 subtitle: Text("0" + contacts.phone.toString()),
-  //                 onTap: () => share(context, contacts),
-  //               ),
-  //             ))
-  //         .toList();
-  //     allContacts.sort((a, b) => b.checkIn.compareTo(a.checkIn));
-  //   });
-  // }
+  void sortContact(BuildContext context) {
+    return setState(() {
+      allContacts
+          .map((Contact contacts) => Card(
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(contacts.user,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16)),
+                      Text(toggleSwitch(contacts)),
+                    ],
+                  ),
+                  subtitle: Text("0" + contacts.phone.toString()),
+                  onTap: () => share(context, contacts),
+                ),
+              ))
+          .toList();
+      allContacts.sort((a, b) => b.checkIn.compareTo(a.checkIn));
+    });
+  }
 
   Widget _buildSearch() => SearchWidget(
         text: query,

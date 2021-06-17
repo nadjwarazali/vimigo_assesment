@@ -75,12 +75,12 @@ class _MyContactsState extends State<MyContacts> {
 
   Widget _buildBody() {
     return LoadingWidget(
-      future:loading,
+      future: loading,
       child: PullToRefreshWidget(
-            controller: _refreshController,
-            onRefresh: _onRefresh,
-            onLoading: _onLoading,
-            child:  _buildContactList(),
+        controller: _refreshController,
+        onRefresh: _onRefresh,
+        onLoading: _onLoading,
+        child: _buildContactList(),
       ),
     );
   }
@@ -153,12 +153,10 @@ class _MyContactsState extends State<MyContacts> {
     });
   }
 
-void sortContact(BuildContext context) {
-  return setState(() {
-    allContacts
-        .map((Contact contacts) => ContactList())
-        .toList();
-    allContacts.sort((a, b) => b.checkIn.compareTo(a.checkIn));
-  });
-}
+  void sortContact(BuildContext context) {
+    return setState(() {
+      allContacts.map((Contact contacts) => ContactList()).toList();
+      allContacts.sort((a, b) => b.checkIn.compareTo(a.checkIn));
+    });
+  }
 }

@@ -7,20 +7,12 @@ import 'contact_model.dart';
 
 class ContactList extends StatelessWidget {
   final Contact contact;
-  // final String switchValue;
   final bool isSwitched;
 
-  // final Function onTap;
-
-  const ContactList({Key key, this.contact, this.isSwitched})
-      : super(key: key);
-
-
+  const ContactList({Key key, this.contact, this.isSwitched}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-
     return Column(
       children: [
         ListTile(
@@ -39,7 +31,7 @@ class ContactList extends StatelessWidget {
             ),
             subtitle: Text("0" + contact.phone.toString(),
                 style: TextStyle(color: Colors.grey, fontSize: 16)),
-            onTap:()  => share(context)),
+            onTap: () => share(context)),
         Divider()
       ],
     );
@@ -59,7 +51,6 @@ class ContactList extends StatelessWidget {
     prefs.setBool('isSwitched', isSwitched);
   }
 
-
   String toggleSwitch() {
     String normal = DateFormat.yMd().add_jm().format(contact.checkIn);
     String formatted = timeago.format(contact.checkIn);
@@ -73,5 +64,3 @@ class ContactList extends StatelessWidget {
     }
   }
 }
-
-
